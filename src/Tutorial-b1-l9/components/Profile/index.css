@@ -1,0 +1,10 @@
+.profile-component {
+  padding: 40px;
+  border-radius: 20px;
+  border: 4px solid aliceblue;
+  display: inline-block;
+}
+
+.profile-component + .profile-component {
+  margin-top: 40px;
+}
