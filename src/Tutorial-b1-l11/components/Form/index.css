@@ -6,3 +6,7 @@
   flex-direction: column;
   height: 100vh;
 }
+
+.form-wrapper input {
+  margin-bottom: 20px;
+}
