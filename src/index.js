@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './Tutorial-b1-l11/App';
+import App from './Tutorial-b2l2/App';
 
 
 ReactDOM.render(

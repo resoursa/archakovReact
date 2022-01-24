@@ -1,61 +1,34 @@
 import './index.css';
+import React from "react";
 
-// Component 1
-const Acordion = () => {
-  const tabs = [
+// Accordion panel
+const Accordion = (props) => {
+  const tabs = props.tabsArray;
 
-    {
+  let [active, setActive] = React.useState(1);
 
-      id: 1,
+  const checkClick = () => {
+    console.log(setActive, active);
+  }
 
-      title: 'Сколько всего мест в доме?',
+  const tabItem = tabs.map((panel, index) =>
+    <div className={active === panel.id ? "tab active" : "tab"} key={index}>
+      <input onClick={() => checkClick(setActive(panel.id))} id={"tab-" + panel.id} type="checkbox" name="tabs"/>
+      <label htmlFor={"tab-" + panel.id}>{panel.title}</label>
 
-      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Non quos nemo corporis velit culpa veritatis asperiores deserunt, commodi ipsum at? Esse quibusdam dignissimos recusandae enim. Eaque expeditaeum provident totam!',
-    },
-
-    {
-
-      id: 2,
-
-      title: 'Самая дорогая квартира?',
-
-      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime fuga deserunt aliquid voluptatum ad, molestiae dicta officiis animi ummollitia, reiciendis a cum ratione veritatis cupiditate voluptatem.Consectetur, exercitationem magnam.',
-
-    },
-
-    {
-
-      id: 3,
-
-      title: 'Могу ли я отменить бронирование?',
-
-      description: 'Да, вы можете отменить забронированную квартиру в течение 3 дней.',
-
-    },
-
-    {
-
-      id: 4,
-
-      title: 'Можно ли купить квартиру?',
-
-      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Est commodi itaque ratione voluptatem dolores iusto aperiam adipisci incidunt perspiciatis ullam! Repellat accusamus rerum excepturi minus delectus? Consequatur libero nemo alias.',
-
-    },
-
-  ];
+      <div className="tab-content">
+        <p>{panel.description}</p>
+      </div>
+    </div>
+  )
 
   return (
+    <div className="app-tabs">
 
-      <form action="" onSubmit={handleSubmit}>
-        <div className="form-wrapper">
-          <input type="email" onChange={handleChangeEvent} />
-          <input type="password" onChange={handleChangeEvent} />
-          <button type="submit">Enter</button>
-        </div>
-      </form>
+      {tabItem}
 
-  );
+    </div>
+    )
 }
 
-export default Acordion;
+export default Accordion;
