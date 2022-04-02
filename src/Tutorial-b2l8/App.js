@@ -87,7 +87,7 @@ function App() {
   return (
     <div className="wrapper">
 
-      //Check if phrase is generated
+      {/*Check if phrase is generated*/}
       {curPhraseArr.length > 0 ? phraseList : <EmptyBlock />}
 
       <div className="text-center">
